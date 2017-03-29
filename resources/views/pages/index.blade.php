@@ -8,7 +8,7 @@
             <h2>Release Notes</h2>
             <h4>1.0</h4>
             <div class="well">
-                <p>Welcome to Puck IQ. Keep Checking back as we make further updates to this site. Currently you can search by individual teams. We'll have individual player lookups, more about what Puck IQ is and a developers blog up shortly.</p>
+                <p>Welcome to Puck IQ. Keep Checking back as we make further updates to this site. Currently you can search by individual teams, and view more indepth player data from there. We'll have individual player lookups, more about what Puck IQ is and a developers blog up shortly.</p>
             </div>
         </div>
       </div>
