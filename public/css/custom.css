@@ -1,0 +1,31 @@
+body {
+  padding-bottom: 30px;
+}
+
+.theme-dropdown .dropdown-menu {
+  position: static;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.theme-showcase > p > .btn {
+  margin: 5px 0;
+}
+
+.theme-showcase .navbar .container {
+  width: auto;
+}
+
+.dropdown-menu.columns-2 {
+	min-width: 300px;
+}
+
+.table-striped>tbody>tr:nth-child(odd)>td, 
+.table-striped>tbody>tr:nth-child(odd)>th {
+   background-color: #d8f0ff; // Choose your own color here
+ }
+
+/* Custom container */
+.container-full {
+  margin: 0 auto;
+}
