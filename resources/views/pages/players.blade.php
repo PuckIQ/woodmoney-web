@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('title')
-| {{$team}} | {{$season}}
+| {{$player}} | {{$season}}
 @endsection
 
 @section('stylesheets')
@@ -9,8 +9,9 @@
 @section('content')
       <div class="container-fluid" role="main">
         <div class="page-header">
-            <h2>{{$team}}</h2>
+            <h2>{{$player}} - {{$playerPosition}}</h2>
             <h4>{{$season}}</h4>
+            <?php //var_dump($teamData); ?>
             <div class="row">
                 <div class="col-md-6">
                 Opposition : 
@@ -32,8 +33,6 @@
                   <table class="table table-striped table-bordered table-condensed table-hover" id="puckiq">
                     <thead>
                       <tr>
-                        <th>Player</th>
-                        <th>Pos</th>
                         <th data-sorter="false">Comp</th>
                         <th data-sorter="false">Conf</th>
                         <th>TOI</th>
@@ -60,12 +59,13 @@
                     </thead>
                     <tbody id="dataTable">
 @foreach($teamData as $player)
-  @if($player['Comp']=="All" && $player['Conf']=="All")
                       <tr>
-                        <td style="white-space: nowrap;"><a href="{{url('players')}}/{{$player['PlayerId']}}">{{$player['Player']}}</a></td>
-                        <td>{{$player['Pos']}}</td>
                         <td>{{$player['Comp']}}</td>
+  @if($player['Conf']=="Both")
+                        <td>All</td>
+  @else
                         <td>{{$player['Conf']}}</td>
+  @endif
                         <td>{{$player['TOI']}}</td>
                         <td>{{$player['CompTOI%']}}</td>
                         <td>{{$player['CF']}}</td>
@@ -87,7 +87,6 @@
                         <td>{{number_format($player['DFF%RelComp'],2)}}</td>
                         <td>{{number_format($player['DFF%RelAll'],2)}}</td>                        
                       </tr>                    
-  @endif
 @endforeach
                     </tbody>
                   </table>
@@ -136,7 +135,7 @@ $(document).ready(function(){
           if(value['Conf']=="Both"){
             conference = "All";
           }
-          htmlTable += '<tr><td style="white-space: nowrap;">'+value['Player']+'</td><td>'+value['Pos']+'</td><td>'+value['Comp']+'</td><td>'+conference+'</td><td>'+value['TOI']+'</td><td>'+value['CompTOI%']+'</td><td>'+value['CF']+'</td><td>'+value['CA']+'</td><td>'+value['CF%']+'</td><td>'+value['CF/60']+'</td><td>'+value['CA/60']+'</td><td>'+Number(value['CF60RelComp']).toFixed(2)+'</td><td>'+Number(value['CA60RelComp']).toFixed(2)+'</td><td>'+Number(value['CF%RelComp']).toFixed(2)+'</td><td>'+Number(value['CF%RelAll']).toFixed(2)+'</td><td>'+value['DFF']+'</td><td>'+value['DFA']+'</td><td>'+value['DFF%']+'</td><td>'+value['DFF/60']+'</td><td>'+value['DFA/60']+'</td><td>'+Number(value['DFF60RelComp']).toFixed(2)+'</td><td>'+Number(value['DFA60RelComp']).toFixed(2)+'</td><td>'+Number(value['DFF%RelComp']).toFixed(2)+'</td><td>'+Number(value['DFF%RelAll']).toFixed(2)+'</td></tr>';
+          htmlTable += '<td>'+value['Comp']+'</td><td>'+conference+'</td><td>'+value['TOI']+'</td><td>'+value['CompTOI%']+'</td><td>'+value['CF']+'</td><td>'+value['CA']+'</td><td>'+value['CF%']+'</td><td>'+value['CF/60']+'</td><td>'+value['CA/60']+'</td><td>'+Number(value['CF60RelComp']).toFixed(2)+'</td><td>'+Number(value['CA60RelComp']).toFixed(2)+'</td><td>'+Number(value['CF%RelComp']).toFixed(2)+'</td><td>'+Number(value['CF%RelAll']).toFixed(2)+'</td><td>'+value['DFF']+'</td><td>'+value['DFA']+'</td><td>'+value['DFF%']+'</td><td>'+value['DFF/60']+'</td><td>'+value['DFA/60']+'</td><td>'+Number(value['DFF60RelComp']).toFixed(2)+'</td><td>'+Number(value['DFA60RelComp']).toFixed(2)+'</td><td>'+Number(value['DFF%RelComp']).toFixed(2)+'</td><td>'+Number(value['DFF%RelAll']).toFixed(2)+'</td></tr>';
         }
     });
     $("#dataTable").html("<table>"+htmlTable+"</table>");
