@@ -67,21 +67,21 @@
                         <td>{{$player['Comp']}}</td>
                         <td>{{$player['Conf']}}</td>
                         <td>{{$player['TOI']}}</td>
-                        <td>{{$player['CompTOI%']}}</td>
-                        <td>{{$player['CF']}}</td>
-                        <td>{{$player['CA']}}</td>
-                        <td>{{$player['CF%']}}</td>
-                        <td>{{$player['CF/60']}}</td>
-                        <td>{{$player['CA/60']}}</td>
+                        <td>{{number_format($player['CompTOI%']}}</td>
+                        <td>{{number_format($player['CF'],2)}}</td>
+                        <td>{{number_format($player['CA'],2)}}</td>
+                        <td>{{number_format($player['CF%'],2)}}</td>
+                        <td>{{number_format($player['CF/60'],2)}}</td>
+                        <td>{{number_format($player['CA/60'],2)}}</td>
                         <td>{{number_format($player['CF60RelComp'],2)}}</td>
                         <td>{{number_format($player['CA60RelComp'],2)}}</td>
                         <td>{{number_format($player['CF%RelComp'],2)}}</td>
                         <td>{{number_format($player['CF%RelAll'],2)}}</td>
-                        <td>{{$player['DFF']}}</td>
-                        <td>{{$player['DFA']}}</td>
-                        <td>{{$player['DFF%']}}</td>
-                        <td>{{$player['DFF/60']}}</td>
-                        <td>{{$player['DFA/60']}}</td>
+                        <td>{{number_format($player['DFF'],2)}}</td>
+                        <td>{{number_format($player['DFA'],2)}}</td>
+                        <td>{{number_format($player['DFF%'],2)}}</td>
+                        <td>{{number_format($player['DFF/60'],2)}}</td>
+                        <td>{{number_format($player['DFA/60'],2)}}</td>
                         <td>{{number_format($player['DFF60RelComp'],2)}}</td>
                         <td>{{number_format($player['DFA60RelComp'],2)}}</td>
                         <td>{{number_format($player['DFF%RelComp'],2)}}</td>
