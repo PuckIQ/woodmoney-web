@@ -67,7 +67,7 @@
                         <td>{{$player['Comp']}}</td>
                         <td>{{$player['Conf']}}</td>
                         <td>{{number_format($player['TOI']/60,2)}}</td>
-                        <td>{{number_format($player['CompTOI%']*60,2)}}</td>
+                        <td>{{number_format($player['CompTOI%'],2)}}</td>
                         <td>{{number_format($player['CF'],2)}}</td>
                         <td>{{number_format($player['CA'],2)}}</td>
                         <td>{{number_format($player['CF%'],2)}}</td>
