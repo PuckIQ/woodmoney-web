@@ -9,7 +9,7 @@
 @section('content')
       <div class="container-fluid" role="main">
         <div class="page-header">
-            <h2>{{$player}} - {{$playerPosition}}</h2>
+            <h2>{{$player}} - {{$playerPosition}} - <a href="{{url('teams')}}/{{$playerTeam}}">{{$playerTeam}}</a></h2>
             <h4>{{$season}}</h4>
             <?php //var_dump($teamData); ?>
             <div class="row">
