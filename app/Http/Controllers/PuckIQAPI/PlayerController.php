@@ -20,7 +20,6 @@ class PlayerController extends Controller
 
 		$teamData = json_decode(self::APIConnect($url),true);
 		$playerName = $teamData[0]['Player'];
-		$teamName = $teamData[0]['Team'];
 
 		switch($teamData[0]['Pos']){
 			case "R":
@@ -38,7 +37,6 @@ class PlayerController extends Controller
 		return \View::make('pages.players')
 					->with('player',$playerName)
 					->with('playerPosition',$playerPosition)
-					->with('playerTeam',$teamName)
 					->with('season',$season)
 					->with('teamData',$teamData,true);
 	}

@@ -9,9 +9,16 @@
 @section('content')
       <div class="container-fluid" role="main">
         <div class="page-header">
-            <h2>{{$player}} - {{$playerPosition}} - <a href="{{url('teams')}}/{{$playerTeam}}">{{$playerTeam}}</a></h2>
+            <h2>{{$player}} - {{$playerPosition}}</h2>
+
             <h4>{{$season}}</h4>
-            <?php //var_dump($teamData); ?>
+            <h4>
+            @foreach($teamData as $player) 
+              @if($player['Comp'] == "All")
+                <a href="{{url('teams')}}/{{$player['Team']}}">{{$player['Team']}}</a> &nbsp;
+              @endif
+            @endforeach
+            </h4>
             <div class="row">
                 <div class="col-md-6">
                 Competition : 
@@ -33,6 +40,7 @@
                   <table class="table table-striped table-bordered table-condensed table-hover" id="puckiq">
                     <thead>
                       <tr>
+                        <th data-sorter="false">Team</th>
                         <th data-sorter="false">Comp</th>
                         <th data-sorter="false">GT</th>
                         <th>TOI</th>
@@ -60,6 +68,7 @@
                     <tbody id="dataTable">
 @foreach($teamData as $player)
                       <tr>
+                        <td>{{$player['Team']}}</td>
                         <td>{{$player['Comp']}}</td>
   @if($player['Conf']=="Both")
                         <td>All</td>
@@ -98,51 +107,11 @@
 @endsection
 
 @section('javascript')
+<script type="text/javascript">
+var teamData = JSON.stringify("{{json_encode($teamData)}}");
+</script>
 <script src="{{ asset('js/tablesort.js')}}"></script>
 <script src="{{ asset('js/widgets.js')}}"></script>
-<script type="text/javascript">
-$(document).ready(function(){
-  $("#gameType").html('<option value="All">All</option>');  
-  $("#competition").val("All");
-  $("#gameType").val("All");
-
-  var teamData = JSON.stringify("{{json_encode($teamData)}}");
-  teamData = teamData.replace(/&quot;/g,'"');
-  teamData = teamData.replace('"[','[');
-  teamData = teamData.replace(']"',']');
-  $("#puckiq").tablesorter({
-    sortInitialOrder  : 'desc',
-    widgets           : ['zebra', 'columns'],
-  }); 
-
-  $("#competition").on('change',function(){
-    var competition = $(this).val();
-    if(competition == 'All'){
-      $("#gameType").html('<option value="All">All</option>');
-    }else{
-      $("#gameType").html('<option value="Both">All</option><option value="West">vs West</option><option value="East">vs East</option><option value="POTeam">vs Playoff Teams</option><option value="NPOTeam">vs Non Playoff Teams</option><option value="Home">Home</option><option value="Away">Away</option>');
-    }
-  });
-
-  $("#CompSelectSubmit").click(function(e){
-    var competition = $("#competition").val();
-    var gameType = $("#gameType").val();
-    var parseData = JSON.parse(teamData.replace(/&quot;/g,'"'));
-    var htmlTable = "";
-    $.each(parseData,function(key,value){
-        if(value.Conf == gameType && value.Comp == competition){
-          var conference = value['Conf'];
-          if(value['Conf']=="Both"){
-            conference = "All";
-          }
-          htmlTable += '<td>'+value['Comp']+'</td><td>'+conference+'</td><td>'+Number(value['TOI']/60).toFixed(2)+'</td><td>'+Number(value['CompTOI%']).toFixed(2)+'</td><td>'+value['CF']+'</td><td>'+value['CA']+'</td><td>'+Number(value['CF%']).toFixed(2)+'</td><td>'+Number(value['CF/60']).toFixed(2)+'</td><td>'+Number(value['CA/60']).toFixed(2)+'</td><td>'+Number(value['CF60RelComp']).toFixed(2)+'</td><td>'+Number(value['CA60RelComp']).toFixed(2)+'</td><td>'+Number(value['CF%RelComp']).toFixed(2)+'</td><td>'+Number(value['CF%RelAll']).toFixed(2)+'</td><td>'+Number(value['DFF']).toFixed(2)+'</td><td>'+Number(value['DFA']).toFixed(2)+'</td><td>'+Number(value['DFF%']).toFixed(2)+'</td><td>'+Number(value['DFF/60']).toFixed(2)+'</td><td>'+Number(value['DFA/60']).toFixed(2)+'</td><td>'+Number(value['DFF60RelComp']).toFixed(2)+'</td><td>'+Number(value['DFA60RelComp']).toFixed(2)+'</td><td>'+Number(value['DFF%RelComp']).toFixed(2)+'</td><td>'+Number(value['DFF%RelAll']).toFixed(2)+'</td></tr>';
-        }
-    });
-    $("#dataTable").html("<table>"+htmlTable+"</table>");
-    var resort = true;
-      $("table").trigger("update", [resort]);
-  });
-
-});
+<script src="{{ asset('js/players.js')}}"></script> 
 </script> 
 @endsection
