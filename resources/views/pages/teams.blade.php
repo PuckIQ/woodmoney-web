@@ -13,7 +13,7 @@
             <h4>{{$season}}</h4>
             <div class="row">
                 <div class="col-md-6">
-                Opposition : 
+                Competition : 
                 <select name="competition" id="competition">
                   <option value="All">All</option>
                   <option value="Elite">Elite</option>
@@ -35,7 +35,7 @@
                         <th>Player</th>
                         <th>Pos</th>
                         <th data-sorter="false">Comp</th>
-                        <th data-sorter="false">Conf</th>
+                        <th data-sorter="false">GT</th>
                         <th>TOI</th>
                         <th>CTOI%</th>
                         <th>CF</th>                        
