@@ -17,3 +17,6 @@ Route::get('/', function () {
 
 Route::get('/teams/{team}', 'PuckIQAPI\TeamController@run');
 Route::get('/players/{player}', 'PuckIQAPI\PlayerController@run');
+Route::get('about', function () {
+    return view('pages.about');
+});
