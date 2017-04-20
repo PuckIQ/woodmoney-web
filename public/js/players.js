@@ -15,7 +15,7 @@ $(document).ready(function(){
     if(competition == 'All'){
       $("#gameType").html('<option value="All">All</option>');
     }else{
-      $("#gameType").html('<option value="Both">All</option><option value="West">vs West</option><option value="East">vs East</option><option value="POTeam">vs Playoff Teams</option><option value="NPOTeam">vs Non Playoff Teams</option><option value="Home">Home</option><option value="Away">Away</option>');
+      $("#gameType").html('<option value="Both">All</option><option value="West">vs West</option><option value="East">vs East</option><option value="Home">Home</option><option value="Away">Away</option>');
     }
   });
 
