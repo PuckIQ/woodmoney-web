@@ -16,7 +16,10 @@ class PlayerController extends Controller
 
 		$season = '2016-17';
 
-		$url = 'http://api.puckiq.com/woodmoney-player/'.$player;
+		if (App::environment('production'))
+			$url = 'http://api.puckiq.com/woodmoney-player/'.$player;
+		else
+			$url = 'http://ren.puckiq.com/woodmoney-player/'.$player;		
 
 		$teamData = json_decode(self::APIConnect($url),true);
 		$playerName = $teamData[0]['Player'];
