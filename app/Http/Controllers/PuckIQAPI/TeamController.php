@@ -15,8 +15,10 @@ class TeamController extends Controller
 	public static function run($team){
 
 		$season = '2016-17';
-
-		$url = 'http://ren.puckiq.com/woodmoney-team/'.$team;
+		if (App::environment('production'))
+			$url = 'http://api.puckiq.com/woodmoney-team/'.$team;
+		else
+			$url = 'http://ren.puckiq.com/woodmoney-team/'.$team;
 
 		$teamData = self::APIConnect($url);
 
