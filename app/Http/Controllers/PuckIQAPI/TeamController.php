@@ -16,7 +16,7 @@ class TeamController extends Controller
 
 		$season = '2016-17';
 
-		$url = 'http://api.puckiq.com/woodmoney-team/'.$team;
+		$url = 'http://ren.puckiq.com/woodmoney-team/'.$team;
 
 		$teamData = self::APIConnect($url);
 
