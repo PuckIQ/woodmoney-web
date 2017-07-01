@@ -17,6 +17,9 @@ Route::get('/', function () {
 
 Route::get('/teams/{team}', 'PuckIQAPI\TeamController@run');
 Route::get('/players/{player}', 'PuckIQAPI\PlayerController@run');
+Route::get('/wowy/{player}', 'PuckIQAPI\WowyController@run');
+Route::get('/search', 'PuckIQAPI\CustomSearchController@run');
+Route::post('/playerSearch', 'PuckIQAPI\CustomSearchController@search');
 Route::get('about', function () {
     return view('pages.about');
 });

@@ -19,7 +19,7 @@ class TeamController extends Controller
 		if (\App::environment('production'))
 			$url = 'http://api.puckiq.com/woodmoney-team/'.$team;
 		else
-			$url = 'http://ren.puckiq.com/woodmoney-team/'.$team;
+			$url = 'http://api.puckiq.com/woodmoney-team/'.$team;
 
 		$teamData = self::APIConnect($url);
 

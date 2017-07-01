@@ -6,6 +6,10 @@
       <div class="container" role="main">
         <div class="page-header">
             <h2>Release Notes</h2>
+            <h4>1.2.0</h4>
+            <div class="well">
+                <p>Added search for player comparison league wide.</p>
+            </div>
             <h4>1.1.1</h4>
             <div class="well">
                 <p>Removed vs playoff and vs non playoff teams. Their inherent problem is they aren't well defined as a metric as a non playoff team might be better than a playoff team.</p>

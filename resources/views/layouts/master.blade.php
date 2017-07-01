@@ -22,7 +22,7 @@
     @include('components.nav')    
 
     @yield('content')
-        
+    @yield('modals')
     <!-- /container -->
     <!-- Core JavaScript
     ================================================== -->

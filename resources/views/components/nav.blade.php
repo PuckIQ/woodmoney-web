@@ -63,7 +63,7 @@
               </li>
               </ul>
             </li>
-            <li><a href="#">Players</a></li>
+            <li><a href="{{url('/search')}}">Players</a></li>
             <li><a href="{{url('/about')}}">About</a></li>
             <li><a href="#contact">Blog</a></li>
 
