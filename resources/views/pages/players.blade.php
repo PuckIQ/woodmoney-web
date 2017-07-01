@@ -63,11 +63,16 @@
                         <th>DFA60RC</th>
                         <th>DFF%RC</th>
                         <th>DFF%RA</th>
+                        <th>GF</th>
+                        <th>GA</th>
+                        <th>GF%</th>
+                        <th>GF/60</th>
+                        <th>GA/60</th>
                       </tr>
                     </thead>
                     <tbody id="dataTable">
 @foreach($teamData as $player)
-                      <tr>
+                     <tr>
                         <td>{{$player['Team']}}</td>
                         <td>{{$player['Comp']}}</td>
   @if($player['Conf']=="Both")
@@ -94,7 +99,12 @@
                         <td>{{number_format($player['DFF60RelComp'],2)}}</td>
                         <td>{{number_format($player['DFA60RelComp'],2)}}</td>
                         <td>{{number_format($player['DFF%RelComp'],2)}}</td>
-                        <td>{{number_format($player['DFF%RelAll'],2)}}</td>                                                                   
+                        <td>{{number_format($player['DFF%RelAll'],2)}}</td>
+                        <td>{{(isset($player['GF']) ? number_format($player['GF'],2) : "--")}}</td>
+                        <td>{{(isset($player['GA']) ? number_format($player['GA'],2) : "--")}}</td>
+                        <td>{{(isset($player['GF%']) ? number_format($player['GF%'],2) : "--")}}</td>
+                        <td>{{(isset($player['GF/60']) ? number_format($player['GF/60'],2) : "--")}}</td>
+                        <td>{{(isset($player['GA/60']) ? number_format($player['GF/60'],2) : "--")}}</td>                                                                  
                       </tr>                    
 @endforeach
                     </tbody>

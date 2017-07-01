@@ -16,7 +16,7 @@ class PlayerController extends Controller
 
 		$season = '2016-17';
 
-		if (App::environment('production'))
+		if (\App::environment('production'))
 			$url = 'http://api.puckiq.com/woodmoney-player/'.$player;
 		else
 			$url = 'http://ren.puckiq.com/woodmoney-player/'.$player;		
