@@ -100,11 +100,11 @@
                         <td>{{number_format($player['DFA60RelComp'],2)}}</td>
                         <td>{{number_format($player['DFF%RelComp'],2)}}</td>
                         <td>{{number_format($player['DFF%RelAll'],2)}}</td>
-                        <td>{{number_format($player['GF'],2)}}</td>
-                        <td>{{number_format($player['GA'],2)}}</td>
-                        <td>{{number_format($player['GF%'],2)}}</td>
-                        <td>{{number_format($player['GF/60'],2)}}</td>
-                        <td>{{number_format($player['GA/60'],2)}}</td>                                                                  
+                        <td>{{(isset($player['GF']) ? number_format($player['GF'],2) : "--")}}</td>
+                        <td>{{(isset($player['GA']) ? number_format($player['GA'],2) : "--")}}</td>
+                        <td>{{(isset($player['GF%']) ? number_format($player['GF%'],2) : "--")}}</td>
+                        <td>{{(isset($player['GF/60']) ? number_format($player['GF/60'],2) : "--")}}</td>
+                        <td>{{(isset($player['GA/60']) ? number_format($player['GF/60'],2) : "--")}}</td>                                                                  
                       </tr>                    
 @endforeach
                     </tbody>
