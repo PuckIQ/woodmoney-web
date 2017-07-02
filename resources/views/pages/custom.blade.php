@@ -37,6 +37,7 @@
                   TOI:
                   <select name="toi" id="toi">
                     <option value=0>All</option>
+                    <option value=100>100+ minutes</option>
                     <option value=250>250+ minutes</option>
                     <option value=500>500+ minutes</option>
                     <option value=750>750+ minutes</option>
