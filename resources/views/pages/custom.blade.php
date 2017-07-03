@@ -106,6 +106,7 @@
 @section('javascript')
 <script type="text/javascript">
 var searchURL = "{{url('playerSearch')}}";
+var playerURL = "{{url('players')}}";
 </script>
 <script src="{{ asset('js/tablesort.js')}}"></script>
 <script src="{{ asset('js/widgets.js')}}"></script>
