@@ -8,7 +8,7 @@
             <h2>Release Notes</h2>
             <h4>2.0.0</h4>
             <div class="well">
-                <p>Added WOWY!! Viewable from an individual player's page. Special note regarding Woodmoney WOWY: It only factors in when both players are in the lineup. I.E a PK Subban and Roman Josi WOWY only calculates games they both played in.</p>
+                <p>Added WOWY!! Viewable from an individual player's results.</p>
             </div>
             <h4>1.2.0</h4>
             <div class="well">
