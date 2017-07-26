@@ -66,7 +66,7 @@
                     </tr>                    
                     <tr>
                       <td>Dangerous Fenwick</td>
-                      <td>Weighted shot metric that takes into account the distance and type of unblocked shot at the net and applies the probability of that type of shot becoming a goal (based on 5 years of NHL shot/goal data. Works very similar to “Expected Goals”. (https://oilersnerdalert.wordpress.com/2015/10/30/explaining-dangerous- fenwick/)</td>
+                      <td>Weighted shot metric that takes into account the distance and type of unblocked shot at the net and applies the probability of that type of shot becoming a goal (based on 5 years of NHL shot/goal data. Works very similar to “Expected Goals”. (<a href="https://oilersnerdalert.wordpress.com/2015/10/30/explaining-dangerous-fenwick/">https://oilersnerdalert.wordpress.com/2015/10/30/explaining-dangerous-fenwick/</a>)</td>
                     </tr>
                     <tr>
                       <td>DFA</td>
