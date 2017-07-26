@@ -55,6 +55,7 @@
                     <thead>
                       <tr>
                         <th data-sorter="false">Team</th>
+                        <th data-sorter="false">Season</th>
                         <th data-sorter="false">Comp</th>
                         <th data-sorter="false">GT</th>
                         <th>TOI</th>
@@ -90,6 +91,7 @@
     @else
                      <tr>
                         <td>{{$player['Team']}}</td>
+                        <td>{{$player['Season']}}</td>
                         <td>{{$player['Comp']}}</td>
         @if($player['Conf']=="Both")
                         <td>All</td>
