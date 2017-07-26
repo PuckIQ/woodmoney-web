@@ -12,41 +12,21 @@ use GuzzleHttp\Client;
 class WowyController extends Controller
 {
 
-	public static function run($player){
+	public static function run($defaultPlayer,$comparePlayer){
 
 		$season = '2016-17';
+		$url = 'http://api.puckiq.com/wowy-player/'.$defaultPlayer.'/playercomp/'.$comparePlayer;
+		$teamData = json_decode(self::APIConnect($url),true);	
 
-		if (\App::environment('production'))
-			$url = 'http://api.puckiq.com/wowy-player/'.$player;
-		else
-			$url = 'http://api.puckiq.com/wowy-player/'.$player;		
-
-		$teamData = json_decode(self::APIConnect($url),true);
-		
-		echo json_encode($teamData);
-
-		/*
-		$playerName = $teamData[0]['Player'];
-
-		switch($teamData[0]['Pos']){
-			case "R":
-				$playerPosition = "RW";
-				break;
-			case "L":
-				$playerPosition = "LW";
-				break;
-			default:
-				$playerPosition = $teamData[0]['Pos'];
-				break;
-		}
-
-
-		return \View::make('pages.players')
-					->with('player',$playerName)
-					->with('playerPosition',$playerPosition)
+		$player1 = array("Name"=>$teamData[0]['player1info'][0]['firstName']." ".$teamData[0]['player1info'][0]['lastName'],"Position" => $teamData[0]['player1info'][0]['primaryPosition']['code'],"ID"=>$teamData[0]['player1info'][0]['_id']);
+		$player2 = array("Name"=>$teamData[0]['player2info'][0]['firstName']." ".$teamData[0]['player2info'][0]['lastName'],"Position" => $teamData[0]['player2info'][0]['primaryPosition']['code'],"ID"=>$teamData[0]['player2info'][0]['_id']);
+		$playerTeam = $teamData[0]['Team'];
+		return \View::make('pages.wowy')
+					->with('player1',$player1)
+					->with('player2',$player2)
 					->with('season',$season)
+					->with('team',$playerTeam)
 					->with('teamData',$teamData,true);
-					*/
 	}
 
 

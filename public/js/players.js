@@ -38,4 +38,10 @@ $(document).ready(function(){
       $("table").trigger("update", [resort]);
   });
 
+  $("#WowySubmit").click(function(e){
+    var defaultPlayerID = $("#defaultPlayerID").val();
+    var wowyPlayerID = $("#wowyPlayer").val();
+    $(location).attr('href', wowyURL+"/"+defaultPlayerID+"/"+wowyPlayerID);
+  });
+
 });

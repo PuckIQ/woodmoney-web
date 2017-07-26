@@ -15,15 +15,9 @@ class TeamController extends Controller
 	public static function run($team){
 
 		$season = '2016-17';
-
-		if (\App::environment('production'))
-			$url = 'http://api.puckiq.com/woodmoney-team/'.$team;
-		else
-			$url = 'http://api.puckiq.com/woodmoney-team/'.$team;
-
+		$url = 'http://api.puckiq.com/woodmoney-team/'.$team;
 		$teamData = self::APIConnect($url);
-
-
+		
 		return \View::make('pages.teams')
 					->with('team',$team)
 					->with('season',$season)
