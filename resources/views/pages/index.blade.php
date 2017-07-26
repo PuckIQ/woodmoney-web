@@ -8,7 +8,7 @@
             <h2>Release Notes</h2>
             <h4>2.0.0</h4>
             <div class="well">
-                <p>Added WOWY!! Viewable from an individual player's results.</p>
+                <p>Added WOWY!! Viewable from an individual player's results. Player search has been temporarily disabled while we look into a bug.</p>
             </div>
             <h4>1.2.0</h4>
             <div class="well">

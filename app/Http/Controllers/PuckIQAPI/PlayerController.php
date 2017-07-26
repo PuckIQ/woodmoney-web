@@ -15,13 +15,13 @@ class PlayerController extends Controller
 	public static function run($player){
 
 		$season = '2016-17';
-		$url = 'http://api.puckiq.com/woodmoney-player/'.$player;		
+		$url = 'http://api.puckiq.com/woodmoney-player/'.$player.'/season/20162017';		
 
 		$teamData = json_decode(self::APIConnect($url),true);
 		$playerName = $teamData[0]['Player'];
 		$playerID = $teamData[0]['PlayerId'];
 
-		$teammateURL = 'http://api.puckiq.com/woodmoney-team/'.$teamData[0]['Team'];
+		$teammateURL = 'http://api.puckiq.com/woodmoney-team/'.$teamData[0]['Team'].'/season/20162017';
 		$teammateData = json_decode(self::APIConnect($teammateURL),true);
 		$teammateList = array();
 		foreach($teammateData as $teammate){

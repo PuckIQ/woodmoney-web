@@ -15,7 +15,7 @@ class TeamController extends Controller
 	public static function run($team){
 
 		$season = '2016-17';
-		$url = 'http://api.puckiq.com/woodmoney-team/'.$team;
+		$url = 'http://api.puckiq.com/woodmoney-team/'.$team.'/season/20162017';
 		$teamData = self::APIConnect($url);
 		
 		return \View::make('pages.teams')
