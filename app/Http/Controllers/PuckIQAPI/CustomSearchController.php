@@ -28,13 +28,13 @@ class CustomSearchController extends Controller
 		$extendUrl			 = "";
 
 		if($position == "All"){
-			$url = 'http://api.puckiq.com/woodmoney-comp/comp/'.$competition.'/season/20162017';
+			$url = 'http://api.puckiq.com/woodmoney-season/20162017/comp/'.$competition;
 			$teamData = json_decode(self::APIConnect($url),true);
 		}else{
 			$teamData = array();
 			$positions = explode(",", $position);
 			foreach($positions as $pos){
-				$url = 'http://api.puckiq.com/woodmoney-comp/comp/'.$competition.'/gameType/2/pos/'.$pos;
+				$url = 'http://api.puckiq.com/woodmoney-season/20162017/comp/'.$competition.'/pos/'.$pos;
 				$teamData = array_merge($teamData,json_decode(self::APIConnect($url),true));
 			}
 
