@@ -14,17 +14,9 @@ class WowyController extends Controller
 
 	public static function run($defaultPlayer,$comparePlayer){
 
-		$season = '2016-17';
-		$url = 'http://api.puckiq.com/wowy-player/'.$defaultPlayer.'/playercomp/'.$comparePlayer;
+		$season = '20162017';
+		$url = 'http://api.puckiq.com/wowy-player/'.$defaultPlayer.'/playercomp/'.$comparePlayer.'/season/'.$season;
 		$teamData = json_decode(self::APIConnect($url),true);	
-
-		foreach($teamData as $teamKey=>$team){
-			if($team['season']!="20162017"){
-				unset($teamData[$teamKey]);
-			}
-		}
-
-		$teamData = array_values($teamData);
 
 		$player1 = array("Name"=>$teamData[0]['player1info'][0]['firstName']." ".$teamData[0]['player1info'][0]['lastName'],"Position" => $teamData[0]['player1info'][0]['primaryPosition']['code'],"ID"=>$teamData[0]['player1info'][0]['_id']);
 		$player2 = array("Name"=>$teamData[0]['player2info'][0]['firstName']." ".$teamData[0]['player2info'][0]['lastName'],"Position" => $teamData[0]['player2info'][0]['primaryPosition']['code'],"ID"=>$teamData[0]['player2info'][0]['_id']);
